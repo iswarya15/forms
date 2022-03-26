@@ -1,0 +1,22 @@
+
+<form [formGroup]="myForm" style="margin-bottom: 50px;">
+   <div formGroupName="name">
+      <mat-form-field>
+         <input matInput placeholder="First name" formControlName="firstName" >
+      </mat-form-field>
+      <mat-form-field style="margin-left: 10px;">
+         <input matInput placeholder="Last name" formControlName="lastName">
+      </mat-form-field>
+      <p *ngIf="name.invalid && name.touched">Invalid name</p>
+   </div>  
+   
+   <mat-form-field>
+      <input matInput placeholder="email" formControlName="email">
+   </mat-form-field>
+   <mat-form-field>
+      <input matInput placeholder="password" formControlName="password">
+   </mat-form-field>
+   <p style="margin: 30px;">{{myForm.value | json}}</p>
+
+   <button mat-raised-button color="primary" [disabled]="!myForm.valid">Submit</button>
+</form>
